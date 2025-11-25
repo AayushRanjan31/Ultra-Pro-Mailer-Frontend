@@ -5,8 +5,6 @@ const { Text } = Typography;
 export default function ProgressPanel({ summary, recentResults = [], currentBatchIndex = 0, totalBatches = 0 }) {
   const percent = summary && summary.total ? Math.round((summary.success / summary.total) * 100) : 0;
 
-  console.log(summary)
-
   return (
     <Card
       title="Send Progress"
