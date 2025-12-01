@@ -1,11 +1,14 @@
+// api.js
 import axios from "axios";
 
 const BACKEND = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
-export async function sendBatchToServer(payload) {
+export async function sendBatchToServer(payload, { useCredentials = false } = {}) {
     try {
         const resp = await axios.post(`${BACKEND}/send`, payload, {
             timeout: 5 * 60 * 1000,
+            // only send credentials if you actually need cookies/session support
+            withCredentials: useCredentials,
         });
         return resp.data;
     } catch (error) {
@@ -16,5 +19,5 @@ export async function sendBatchToServer(payload) {
         } else {
             throw new Error(error.message || "Unknown error");
         }
-    }
+    } 
 }
