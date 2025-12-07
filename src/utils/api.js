@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BACKEND = (import.meta.env.VITE_BACKEND_URL || "http://localhost:8000").replace(/\/+$/, "");
+const BACKEND = (import.meta.env.VITE_BACKEND_URL || "https://ultra-pro-mailer-backend-1sle.onrender.com").replace(/\/+$/, "");
 
 export async function sendBatchToServer(payload) {
     try {
